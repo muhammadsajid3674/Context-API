@@ -13,8 +13,8 @@ const Cars = () => {
                             key={carID}
                             name={context.cars[carID].name}
                             price={context.cars[carID].price}
-                            incrementPrice={() => context.incrementCarPrice(carID)}
-                            decrementPrice={() => context.decrementCarPrice(carID)}
+                            incrementPrice={() => context.incrementPrice(carID)}
+                            decrementPrice={() => context.decrementPrice(carID)}
                         />
                     })}
                 </Fragment>
