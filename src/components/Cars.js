@@ -1,20 +1,25 @@
 import React, { Fragment } from 'react'
+import MyContext from '../Context/MyContext'
 import Car from './Car'
 
-const Cars = (props) => {
+const Cars = () => {
     return (
-        <Fragment>
-            <h4>Cars:</h4>
-            {Object.keys(props.cars).map(carID => {
-                return <Car
-                    key={carID}
-                    name={props.cars[carID].name}
-                    price={props.cars[carID].price}
-                    incrementPrice={() => props.incrementCarPrice(carID)}
-                    decrementPrice={() => props.decrementCarPrice(carID)}
-                />
-            })}
-        </Fragment>
+        <MyContext.Consumer>
+            {context => (
+                <Fragment>
+                    <h4>Cars:</h4>
+                    {Object.keys(context.cars).map(carID => {
+                        return <Car
+                            key={carID}
+                            name={context.cars[carID].name}
+                            price={context.cars[carID].price}
+                            incrementPrice={() => context.incrementCarPrice(carID)}
+                            decrementPrice={() => context.decrementCarPrice(carID)}
+                        />
+                    })}
+                </Fragment>
+            )}
+        </MyContext.Consumer>
     )
 }
 
