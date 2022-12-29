@@ -1,5 +1,16 @@
 .App {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+table{
+  margin: 0 20%;
+}
+table thead tr{
+  background-color: #282c34;
+  color: #fff;
 }
 
 .App-logo {
