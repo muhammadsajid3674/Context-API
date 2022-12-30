@@ -1,16 +1,17 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import MyContext from '../Context/MyContext'
 
 const DataTable = () => {
     return (
         <MyContext.Consumer>
             {context => (
-                <Fragment>
+                <div className='tableMain'>
                     <h4>User Data:</h4>
+                    {context.std && Array.isArray(context.std) && context.std.length > 0 ? (
                     <table border='1' cellSpacing='0' cellPadding='10'>
                         <thead>
                             <tr >
-                                {context.tableHead.stdHead.map(userId => {
+                                {context.tableHead.map(userId => {
                                     return <td key={userId}>{userId}</td>
                                 })}
                                 <td>Actions</td>
@@ -31,7 +32,11 @@ const DataTable = () => {
                             })}
                         </tbody>
                     </table>
-                </Fragment>
+
+                    ) : (
+                        <h1>No Data Found</h1>
+                    )}
+                </div>
             )}
         </MyContext.Consumer>
     )

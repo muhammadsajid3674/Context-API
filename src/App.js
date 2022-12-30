@@ -5,13 +5,12 @@ import MyProvider from './Context/MyProvider';
 
 class App extends Component {
   render() {
-    return (
-      <MyProvider>
-        <div className='App'>
-          <h1>Welcome to LMS</h1>
-          <DataTable/>
-        </div>
-      </MyProvider>
+    return (<>
+      <div className='App'>
+        <h1>Welcome to LMS</h1>
+      </div>
+      <MyProvider />
+    </>
     );
   }
 }

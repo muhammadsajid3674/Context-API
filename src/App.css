@@ -5,9 +5,13 @@
   flex-direction: column;
 }
 
-table{
-  margin: 0 20%;
+.tableMain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
+
 table thead tr{
   background-color: #282c34;
   color: #fff;
