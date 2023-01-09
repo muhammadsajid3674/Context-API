@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import './App.css';
-import ProductList from './components/Product';
+import DataTable from './components/DataTable';
 import MyProvider from './Context/MyProvider';
 
 class App extends Component {
@@ -8,8 +8,8 @@ class App extends Component {
     return (
       <MyProvider>
         <div className='App'>
-          <h1>Welcome to web store</h1>
-          <ProductList/>
+          <h1>Welcome to LMS</h1>
+          <DataTable/>
         </div>
       </MyProvider>
     );
