@@ -8,17 +8,25 @@ const MyProvider = () => {
 
     const tableHead = ['Name', 'Email', 'Age', 'Gender']
 
-    const dispatchStdEvent = (actionType, payload) =>{
-        switch(actionType){
-            case 'ADD_STD' :
+    const dispatchStdEvent = (actionType, payload) => {
+        switch (actionType) {
+            case 'ADD_STD':
                 setStd([...std, payload.newStd]);
+                return;
+            case 'DELETE_STD':
+                let afterDelte = std.filter((elem, index) => index !== payload.stdIndex);
+                setStd(afterDelte);
+                return;
+            case 'UPDATE_STD':
+                return;
+            default:
                 return;
         }
     }
 
     return (
         <MyContext.Provider value={{ tableHead, std, dispatchStdEvent }}>
-            <AddStd/>
+            <AddStd />
             <DataTable />
         </MyContext.Provider>
     )
