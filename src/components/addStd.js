@@ -5,6 +5,7 @@ import { newStdEntry } from '../redux/actions/newStdAction'
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { FormControl, Grid, InputLabel, MenuItem, Select, TextField } from '@mui/material';
+import { pushData } from '../firebase/firebaseMethods';
 
 const AddStd = () => {
 
@@ -12,10 +13,13 @@ const AddStd = () => {
   const [modal, setModal] = useState({});
 
   const handleSubmit = (event) => {
-    let id = generateKey(6)
-    modal.id = id;
-    dispatch(newStdEntry(modal))
+    // let id = generateKey(6)
+    // modal.id = id;
+    // dispatch(newStdEntry(modal))
     event.preventDefault()
+    return pushData(modal, 'Students')
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err))
   }
 
   return (

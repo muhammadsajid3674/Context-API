@@ -1,10 +1,15 @@
+import { configureStore } from '@reduxjs/toolkit';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import App from './App';
 import './index.css';
-import { store } from './redux/store';
+import { parent } from './redux/reducers';
 import reportWebVitals from './reportWebVitals';
+
+const store = configureStore({
+  reducer: parent,
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
