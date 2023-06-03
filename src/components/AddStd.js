@@ -12,7 +12,8 @@ const AddStd = () => {
         gender: '',
     })
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault()
         let key = generateKey(6);
         newEntry.id = key;
         dispatchStdEvent('ADD_STD', { newStd: newEntry });
@@ -22,10 +23,9 @@ const AddStd = () => {
             age: '',
             gender: '',
         })
-
     }
     return (
-        <div className='d-flex justify-content-center'>
+        <form onSubmit={handleSubmit} className='d-flex justify-content-center'>
             <input
                 value={newEntry.name}
                 onChange={(event) => setNewEntry({
@@ -54,8 +54,8 @@ const AddStd = () => {
                     [event.target.name]: event.target.value
                 })}
                 name='gender' />
-            <button onClick={handleSubmit}>Submit</button>
-        </div>
+            <button type='submit'>Submit</button>
+        </form>
     )
 }
 
